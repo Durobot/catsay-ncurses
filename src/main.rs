@@ -38,6 +38,10 @@ fn create_form(siv: &mut Cursive) // this fn is called input_step() in the origi
                     // `call_on_id` is being renamed to `call_on_name`
                     //let message = s.call_on_id("message", |t: &mut EditView| t.get_content()).unwrap();
                     //let is_dead = s.call_on_id("dead", |t: &mut Checkbox| t.is_checked()).unwrap();
+                    //
+                    // Tries to find the view identified by the given id (name), then calls the provided
+                    // closure providing a reference to this view to the closure as argument.
+                    // https://docs.rs/cursive/0.16.3/cursive/struct.Cursive.html#method.call_on_name
                     let message = s.call_on_name("message", |t: &mut EditView| t.get_content()).unwrap();
                     let is_dead = s.call_on_name("dead", |t: &mut Checkbox| t.is_checked()).unwrap();
                     let options = CatsayOptions
